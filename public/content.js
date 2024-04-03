@@ -7,7 +7,7 @@ const activateCommentsPopup = () => {
     
 
     commentsEl.classList.add("comments-popup");
-    videoContent.classList.add("video-with-comments");
+    // videoContent.classList.add("video-with-comments");
     commentsContent.classList.add("comments-content");
 
     videoPlayer.append(commentsEl);
