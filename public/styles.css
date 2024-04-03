@@ -4,8 +4,17 @@
     height: 100%;
     z-index: 23;
     width: 30%;
-    padding-left: 15px;
     overflow-y: scroll;
     scrollbar-width: none;
     touch-action: none;
+}
+
+.video-with-comments {
+    width: 70% !important;
+    object-fit: contain !important;
+    left: 0px !important;
+}
+
+.comments-content {
+    padding-left: 15px;
 }
