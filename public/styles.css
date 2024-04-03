@@ -1,0 +1,11 @@
+.comments-popup {
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    z-index: 23;
+    width: 30%;
+    padding-left: 15px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    touch-action: none;
+}

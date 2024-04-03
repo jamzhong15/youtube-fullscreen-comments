@@ -11,6 +11,12 @@
     "host_permissions": [
       "https://www.youtube.com/*",
       "https://youtu.be/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://www.youtube.com/*"],
+        "js": ["content.js"],
+        "css": ["styles.css"]
+      }
     ]
-
   }

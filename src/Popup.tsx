@@ -2,16 +2,19 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const onClick = async () => {
-    let [tab] = await chrome.tabs.query({ active: true})
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id! },
-      func: () => {
-        document.body.style.backgroundColor = 'red'
+function Popup() {
+  function onClick() {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      const tab = tabs[0];
+      if (tab && tab.id !== undefined) {
+        chrome.tabs.sendMessage(tab.id, {
+          action: 'activateCommentsPopup',
+        });
       }
-    })
+    });
   }
+
+  
 
   return (
     <>
@@ -23,7 +26,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Youtube Comments Popup</h1>
       <div className="card">
         <button onClick={onClick}>
           Activate
@@ -39,4 +42,4 @@ function App() {
   )
 }
 
-export default App
+export default Popup
