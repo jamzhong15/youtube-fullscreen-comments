@@ -4,11 +4,14 @@
     border-radius: 25px 0px 0px 25px;
     z-index: 23;
     width: 30%;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
     background-color: rgba(30, 30, 30, 0.8);
     scrollbar-width: none;
     touch-action: none;
-    padding: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 10px;
     box-sizing: border-box;
     
 }
@@ -18,4 +21,9 @@
     scrollbar-width: none;
     touch-action: none;
     overflow-y: scroll;
+}
+
+.comments-button {
+    vertical-align: top;
+    margin-top: 0.5px;
 }
