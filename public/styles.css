@@ -1,18 +1,21 @@
-.comments-popup {
+.comments-wrapper {
     position: absolute;
     right: 0px;
-    height: 100%;
     border-radius: 25px 0px 0px 25px;
     z-index: 23;
     width: 30%;
-    overflow-y: scroll;
     backdrop-filter: blur(2px);
     background-color: rgba(30, 30, 30, 0.8);
     scrollbar-width: none;
     touch-action: none;
-    padding-bottom: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    
 }
 
 .comments-content {
-    padding-left: 20px;
+    height:100%;
+    scrollbar-width: none;
+    touch-action: none;
+    overflow-y: scroll;
 }
