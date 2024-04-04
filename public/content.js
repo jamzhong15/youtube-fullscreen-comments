@@ -6,6 +6,18 @@ const activateExtension = () => {
 
     const commentsWrapper = document.createElement('div');
     commentsWrapper.classList.add("comments-wrapper");
+
+    const addHeightObserver = () => {
+        const resizeObserver = new ResizeObserver(entries => {
+            for (let entry of entries) {
+              const height = Math.floor(entry.contentRect.height);
+              commentsWrapper.style.height = `${height}px`;
+            }
+          });
+    
+        resizeObserver.observe(videoPlayer)
+    }
+    
     
     const toggleComments = (event) => {
         const commentsToggleButton = document.querySelector('#comments-toggle-button');
@@ -17,7 +29,7 @@ const activateExtension = () => {
             
             commentsWrapper.style.display = 'block';
             commentsWrapper.append(commentsSection);
-            commentsWrapper.style.height = `${videoContent.clientHeight}px`;
+            // commentsWrapper.style.height = `${videoContent.clientHeight}px`;
             videoPlayer.append(commentsWrapper);
         } else {
             commentsSection.classList.remove("comments-content");
@@ -47,6 +59,7 @@ const activateExtension = () => {
     }
     
     createCommentsButton()
+    addHeightObserver()
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
