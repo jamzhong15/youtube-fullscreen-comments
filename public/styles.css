@@ -1,3 +1,4 @@
+
 .comments-wrapper {
     position: absolute;
     right: 0px;
@@ -16,6 +17,10 @@
     
 }
 
+.comments-wrapper-light {
+    background-color: rgba(230, 230, 230, 0.8) !important;
+}
+
 .comments-content {
     height:100%;
     scrollbar-width: none;
@@ -25,5 +30,5 @@
 
 .comments-button {
     vertical-align: top;
-    margin-top: 0.5px;
+    margin-top: 1px;
 }

@@ -1,43 +1,16 @@
 const activateExtension = () => {
     const commentsSection = document.querySelector('#comments');
     const videoPlayer = document.querySelector('.html5-video-player');
-    const videoContent = document.querySelector('.video-stream');
     const originalCommentsContainer = document.querySelector('#below');
+
+    const page = document.querySelector('html');
+    const isDark = page.hasAttribute('dark');
 
     const commentsWrapper = document.createElement('div');
     commentsWrapper.classList.add("comments-wrapper");
-
-    const addHeightObserver = () => {
-        const resizeObserver = new ResizeObserver(entries => {
-            for (let entry of entries) {
-              const height = Math.floor(entry.contentRect.height);
-              commentsWrapper.style.height = `${height}px`;
-            }
-          });
     
-        resizeObserver.observe(videoPlayer)
-    }
-    
-    
-    const toggleComments = (event) => {
-        const commentsToggleButton = document.querySelector('#comments-toggle-button');
-        const commentsToggled = commentsToggleButton.getAttribute('aria-pressed')
-    
-        if (commentsToggled == 'false') {
-            commentsSection.classList.add("comments-content");
-            commentsToggleButton.setAttribute('aria-pressed', 'true');
-            
-            commentsWrapper.style.display = 'block';
-            commentsWrapper.append(commentsSection);
-            // commentsWrapper.style.height = `${videoContent.clientHeight}px`;
-            videoPlayer.append(commentsWrapper);
-        } else {
-            commentsSection.classList.remove("comments-content");
-            commentsToggleButton.setAttribute('aria-pressed', 'false');
-            originalCommentsContainer.append(commentsSection);
-            commentsWrapper.style.display = 'none';
-        }
-    
+    if (!isDark ) {
+        commentsWrapper.classList.add("comments-wrapper-light");
     }
     
     const createCommentsButton = () => {
@@ -56,6 +29,37 @@ const activateExtension = () => {
         rightControls.prepend(commentsToggleButton);
         commentsToggleButton.addEventListener('click', toggleComments);
     
+    }
+
+    const toggleComments = (event) => {
+        const commentsToggleButton = document.querySelector('#comments-toggle-button');
+        const commentsToggled = commentsToggleButton.getAttribute('aria-pressed')
+    
+        if (commentsToggled == 'false') {
+            commentsSection.classList.add("comments-content");
+            commentsToggleButton.setAttribute('aria-pressed', 'true');
+            
+            commentsWrapper.style.display = 'block';
+            commentsWrapper.append(commentsSection);
+            videoPlayer.append(commentsWrapper);
+        } else {
+            commentsSection.classList.remove("comments-content");
+            commentsToggleButton.setAttribute('aria-pressed', 'false');
+            originalCommentsContainer.append(commentsSection);
+            commentsWrapper.style.display = 'none';
+        }
+    
+    }
+
+    const addHeightObserver = () => {
+        const resizeObserver = new ResizeObserver(entries => {
+            for (let entry of entries) {
+              const height = Math.floor(entry.contentRect.height);
+              commentsWrapper.style.height = `${height}px`;
+            }
+          });
+    
+        resizeObserver.observe(videoPlayer)
     }
     
     createCommentsButton()
