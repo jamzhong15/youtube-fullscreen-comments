@@ -8,15 +8,17 @@ function Popup() {
       <div>
           <img src={appLogo} className="logo" alt="Youtube Comments" />
       </div>
-      <h1>Youtube Comments Overlay</h1>
+      <h2>Youtube Comments Overlay</h2>
       <div className="card">
         <p>
           Watch Youtube and read comments at the same time!
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+      <p>
+        Developed by James Zhong
+        <br />< a href="mailto:jamzhong@gmail.com">jamzhong@gmail.com</a>
       </p>
+      <p></p>
     </>
   )
 }

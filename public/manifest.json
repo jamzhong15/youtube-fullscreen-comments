@@ -1,18 +1,14 @@
 {
     "manifest_version": 3,
-    "name": "Youtube Fullscreen Comments",
+    "name": "Youtube Comments Overlay",
+    "description": "Watch YouTube videos while reading the comments.",
     "version": "1.0.0",
     "action": {
       "default_popup": "index.html"
     },
     "permissions": [
       "scripting",
-      "tabs",
-      "storage"
-    ],
-    "host_permissions": [
-      "https://www.youtube.com/*",
-      "https://youtu.be/*"
+      "tabs"
     ],
     "content_scripts": [
       {
