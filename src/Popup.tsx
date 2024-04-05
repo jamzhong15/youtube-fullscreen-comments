@@ -3,18 +3,6 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function Popup() {
-  function onClick() {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      const tab = tabs[0];
-      if (tab && tab.id !== undefined) {
-        chrome.tabs.sendMessage(tab.id, {
-          action: 'activateCommentsPopup',
-        });
-      }
-    });
-  }
-
-  
 
   return (
     <>
@@ -28,9 +16,6 @@ function Popup() {
       </div>
       <h1>Youtube Comments Popup</h1>
       <div className="card">
-        <button onClick={onClick}>
-          Activate
-        </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

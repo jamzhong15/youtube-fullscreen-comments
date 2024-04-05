@@ -1,11 +1,34 @@
-.comments-popup {
+
+.comments-wrapper {
     position: absolute;
     right: 0px;
-    height: 100%;
+    border-radius: 25px 0px 0px 25px;
     z-index: 23;
     width: 30%;
-    padding-left: 15px;
-    overflow-y: scroll;
+    backdrop-filter: blur(3px);
+    background-color: rgba(30, 30, 30, 0.8);
     scrollbar-width: none;
     touch-action: none;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    
+}
+
+.comments-wrapper-light {
+    background-color: rgba(230, 230, 230, 0.8) !important;
+}
+
+.comments-content {
+    height:100%;
+    scrollbar-width: none;
+    touch-action: none;
+    overflow-y: scroll;
+}
+
+.comments-button {
+    vertical-align: top;
+    margin-top: 1px;
 }
